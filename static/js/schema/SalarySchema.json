@@ -1,0 +1,38 @@
+{
+    "created_at": {
+        "type": "datetime"
+    },
+    "updated_at": {
+        "type": "datetime"
+    },
+    "deleted": {
+        "type": "boolean",
+        "default": false
+    },
+    "deleted_at": {
+        "type": "datetime"
+    },
+    "id": {
+        "type": "number",
+        "primary": true
+    },
+    "id_employee": {
+        "type": "number",
+        "required": true
+    },
+    "total_hours_working": {
+        "type": "number"
+    },
+    "total_time_working": {
+        "type": "number"
+    },
+    "money_for_hour": {
+        "type": "number"
+    },
+    "money_for_day": {
+        "type": "number"
+    },
+    "total_salary": {
+        "type": "number"
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "created_at": {
+        "type": "datetime"
+    },
+    "updated_at": {
+        "type": "datetime"
+    },
+    "deleted": {
+        "type": "boolean",
+        "default": false
+    },
+    "deleted_at": {
+        "type": "datetime"
+    },
+    "id": {
+        "type": "number",
+        "primary": true
+    },
+    "id_todo": {
+        "type": "number",
+        "required": true
+    },
+    "start_time_working": {
+        "type": "number"
+    },
+    "end_time_working": {
+        "type": "number"
+    },
+    "todo": {
+        "type": "dict"
+    }
+}

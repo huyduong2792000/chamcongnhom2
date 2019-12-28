@@ -1,0 +1,30 @@
+{
+    "created_at": {
+        "type": "datetime"
+    },
+    "updated_at": {
+        "type": "datetime"
+    },
+    "deleted": {
+        "type": "boolean",
+        "default": false
+    },
+    "deleted_at": {
+        "type": "datetime"
+    },
+    "id": {
+        "type": "number",
+        "primary": true
+    },
+    "todo_name": {
+        "type": "string",
+        "length": 255
+    },
+    "current_employee_working": {
+        "type": "number"
+    },
+    "describe": {
+        "type": "string",
+        "length": 255
+    }
+}

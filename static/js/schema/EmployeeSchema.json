@@ -1,0 +1,52 @@
+{
+    "created_at": {
+        "type": "datetime"
+    },
+    "updated_at": {
+        "type": "datetime"
+    },
+    "deleted": {
+        "type": "boolean",
+        "default": false
+    },
+    "deleted_at": {
+        "type": "datetime"
+    },
+    "id": {
+        "type": "number",
+        "primary": true
+    },
+    "name": {
+        "type": "string",
+        "length": 255
+    },
+    "id_number": {
+        "type": "number"
+    },
+    "age": {
+        "type": "number"
+    },
+    "hometown": {
+        "type": "string",
+        "length": 255
+    },
+    "phone_number": {
+        "type": "number"
+    },
+    "gender": {
+        "type": "string",
+        "length": 255
+    },
+    "position": {
+        "type": "string",
+        "length": 255
+    },
+    "work_place": {
+        "type": "string",
+        "length": 255
+    },
+    "status": {
+        "type": "string",
+        "length": 255
+    }
+}

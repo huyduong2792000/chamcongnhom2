@@ -1,0 +1,43 @@
+{
+    "created_at": {
+        "type": "datetime"
+    },
+    "updated_at": {
+        "type": "datetime"
+    },
+    "deleted": {
+        "type": "boolean",
+        "default": false
+    },
+    "deleted_at": {
+        "type": "datetime"
+    },
+    "id": {
+        "type": "number",
+        "primary": true
+    },
+    "id_employee": {
+        "type": "number",
+        "required": true
+    },
+    "employee_name": {
+        "type": "string",
+        "length": 255
+    },
+    "id_todo": {
+        "type": "number",
+        "required": true
+    },
+    "todo_name": {
+        "type": "string",
+        "length": 255
+    },
+    "status_completed_employee": {
+        "type": "string",
+        "length": 255
+    },
+    "status_completed_leader": {
+        "type": "string",
+        "length": 255
+    }
+}
