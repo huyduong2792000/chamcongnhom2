@@ -4,14 +4,14 @@ define(function (require) {
         _                   = require('underscore'),
         Gonrin				= require('gonrin');
     
-    var template 			= require('text!app/view/HangHoa/tpl/collection.html');
-    var	schema 				= require('json!schema/HangHoaSchema.json');
-    
+    var template 			= require('text!app/manager/Todo/tpl/collection.html');
+    var	schema 				= require('json!schema/TodoSchema.json');
+    console.log('collectionview')
     return Gonrin.CollectionView.extend({
     	template : template,
     	modelSchema	: schema,
     	urlPrefix: "/api/v1/",
-		collectionName: "hanghoa",
+		collectionName: "todo",
 		tools: [
 			{
 				name: "default",
@@ -38,9 +38,8 @@ define(function (require) {
 	    	     { 
 	    	    	field: "id",label:"ID",
 	    	     },
-	    	     { field: "ma", label: "Mã"},
-				  { field: "ten", label: "Tên", width:250 },
-				  { field: "gia", label: "Giá" },
+				  { field: "name", label: "Tên" },
+				  {field:"current_employee_working",label:"Số nhân viên đang làm"}
 		     ],
 		     onRowClick: function(event){
 		    	if(event.rowId){

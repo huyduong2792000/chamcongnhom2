@@ -2,18 +2,18 @@ define(function (require) {
 	"use strict";
 	return [
 		{
-			"text":"Quốc gia",
+			"text":"Nhân Viên",
 			"icon":"fa fa-child",
 			"type":"view",
-			"collectionName":"quocgia",
-		    "route":"quocgia/collection"
+			"collectionName":"employee",
+		    "route":"employee/collection"
 		},
 		{
-			"text":"Tỉnh thành",
+			"text":"Công Việc",
 			"icon":"fa fa-child",
 			"type":"view",
-			"collectionName":"tinhthanh",
-		    "route":"tinhthanh/collection"
+			"collectionName":"todo",
+		    "route":"todo/collection"
 		},
 
 		{

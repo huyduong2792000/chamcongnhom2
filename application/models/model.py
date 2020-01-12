@@ -92,7 +92,7 @@ class TodoSchedule(CommonModel):
     end_time_working = db.Column(Integer)
 
 class EmployeeSchedule(CommonModel):
-    id = db.Column(Integer, primary_key=True)
+    id = db.Column(Integer, primary_key=True) 
     __tablename__ = 'employeeschedule'
     id_employee =  db.Column(Integer, ForeignKey('employee.id'), nullable=False)
     employee = db.relationship("Employee", order_by="Employee.id", cascade="all, delete-orphan", single_parent=True)

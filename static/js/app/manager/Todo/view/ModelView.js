@@ -4,14 +4,14 @@ define(function (require) {
         _                   = require('underscore'),
         Gonrin				= require('gonrin');
     
-    var template 			= require('text!app/view/HangHoa/tpl/model.html'),
-    	schema 				= require('json!schema/HangHoaSchema.json');
+    var template 			= require('text!app/manager/Todo/tpl/model.html'),
+    	schema 				= require('json!schema/TodoSchema.json');
     
     return Gonrin.ModelView.extend({
     	template : template,
     	modelSchema	: schema,
     	urlPrefix: "/api/v1/",
-    	collectionName: "hanghoa",
+    	collectionName: "todo",
     	tools : [
     	    {
     	    	name: "defaultgr",
@@ -33,7 +33,7 @@ define(function (require) {
 		    	    	name: "save",
 		    	    	type: "button",
 		    	    	buttonClass: "btn-success btn-sm",
-		    	    	label: "Lưu quốc gia",
+		    	    	label: "LƯU CÔNG VIỆC",
 		    	    	command: function(){
 		    	    		var self = this;
 		    	    		
