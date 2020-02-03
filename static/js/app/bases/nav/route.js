@@ -24,6 +24,16 @@ define(function (require) {
 			"route": "todo/model(/:id)",
 			"$ref": "app/manager/Todo/view/ModelView",
 		},
+		{
+			"collectionName": "todoschedule", 
+			"route": "todoschedule/collection",
+			"$ref": "app/manager/TodoSchedule/view/CollectionView",
+		},
+		{
+			"collectionName": "todoschedule",
+			"route": "todoschedule/model(/:id)",
+			"$ref": "app/manager/TodoSchedule/view/ModelView",
+		},
 	];
 
 });

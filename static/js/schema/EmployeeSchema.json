@@ -48,5 +48,11 @@
     "status": {
         "type": "string",
         "length": 255
+    },
+    "todo": {
+        "type": "list"
+    },
+    "todoscheduledetail": {
+        "type": "list"
     }
 }

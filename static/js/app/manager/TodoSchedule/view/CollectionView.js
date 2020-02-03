@@ -4,14 +4,14 @@ define(function (require) {
         _                   = require('underscore'),
         Gonrin				= require('gonrin');
     
-    var template 			= require('text!app/manager/Todo/tpl/collection.html');
-    var	schema 				= require('json!schema/TodoSchema.json');
+    var template 			= require('text!app/manager/TodoSchedule/tpl/collection.html');
+    var	schema 				= require('json!schema/TodoScheduleSchema.json');
     console.log('collectionview')
     return Gonrin.CollectionView.extend({
     	template : template,
     	modelSchema	: schema,
     	urlPrefix: "/api/v1/",
-		collectionName: "todo",
+		collectionName: "todoschedule",
 		tools: [
 			{
 				name: "default",
@@ -38,8 +38,9 @@ define(function (require) {
 	    	     { 
 	    	    	field: "id",label:"ID",
 	    	     },
-				  { field: "todo_name", label: "Tên" },
-				  
+				//   { field: "todo", label: "Tên công việc" },
+				  {field:"start_time_working",label:"Thời gian bắt đầu"},
+				  {field:"end_time_working",label:"Thời gian kết thúc"}
 		     ],
 		     onRowClick: function(event){
 		    	if(event.rowId){

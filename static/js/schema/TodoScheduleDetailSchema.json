@@ -16,17 +16,13 @@
         "type": "number",
         "primary": true
     },
-    "id_employee": {
-        "type": "number",
-        "required": true
+    "todo_schedule_id": {
+        "type": "number"
     },
-    "day_working": {
-        "type": "datetime"
+    "employee": {
+        "type": "list"
     },
-    "start_time_working": {
-        "type": "datetime"
-    },
-    "end_time_working": {
-        "type": "datetime"
+    "todo": {
+        "type": "list"
     }
 }

@@ -16,28 +16,13 @@
         "type": "number",
         "primary": true
     },
-    "id_employee": {
-        "type": "number",
-        "required": true
+    "todoscheduledetail_id": {
+        "type": "number"
     },
-    "employee_name": {
-        "type": "string",
-        "length": 255
+    "employee_id": {
+        "type": "number"
     },
-    "id_todo": {
-        "type": "number",
-        "required": true
-    },
-    "todo_name": {
-        "type": "string",
-        "length": 255
-    },
-    "status_completed_employee": {
-        "type": "string",
-        "length": 255
-    },
-    "status_completed_leader": {
-        "type": "string",
-        "length": 255
+    "todo_id": {
+        "type": "number"
     }
 }

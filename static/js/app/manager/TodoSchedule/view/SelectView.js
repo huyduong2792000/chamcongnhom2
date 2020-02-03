@@ -4,14 +4,14 @@ define(function (require) {
         _                   = require('underscore'),
         Gonrin				= require('gonrin');
     
-    var template 			= require('text!app/manager/Employee/tpl/collection.html'),
-    	schema 				= require('json!schema/EmployeeSchema.json');
+    var template 			= require('text!app/view/HangHoa/tpl/collection.html'),
+    	schema 				= require('json!schema/HangHoaSchema.json');
 
     return Gonrin.CollectionDialogView.extend({
     	template : template,
     	modelSchema	: schema,
     	urlPrefix: "/api/v1/",
-    	collectionName: "employee",
+    	collectionName: "hanghoa",
     	textField: "ten",
     	valueField: "id",
     	tools : [
@@ -36,8 +36,8 @@ define(function (require) {
     	],
     	uiControl:{
     		fields: [
-	    	     { field: "id", label: "Mã", width:150},
-		     	 { field: "name", label: "Tên", width:250 },
+	    	     { field: "ma", label: "Mã", width:150},
+		     	 { field: "ten", label: "Tên", width:250 },
 		    ],
 		    onRowClick: function(event){
 	    		this.uiControl.selectedItems = event.selectedItems;

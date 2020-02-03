@@ -15,20 +15,12 @@ define(function (require) {
 			"collectionName":"todo",
 		    "route":"todo/collection"
 		},
-
 		{
-			"text":"Khách hàng",
+			"text":"Lên Lịch Công Việc",
 			"icon":"fa fa-child",
 			"type":"view",
-			"collectionName":"khachhang",
-		    "route":"khachhang/collection"
-		},
-		{
-			"text":"Hàng hoá",
-			"icon":"fa fa-child",
-			"type":"view",
-			"collectionName":"hanghoa",
-		    "route":"hanghoa/collection"
+			"collectionName":"todoschedule",
+		    "route":"todoschedule/collection"
 		},
 		{
 			"text":"Hoá đơn",

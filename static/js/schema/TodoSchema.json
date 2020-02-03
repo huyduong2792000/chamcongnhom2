@@ -20,11 +20,14 @@
         "type": "string",
         "length": 255
     },
-    "current_employee_working": {
-        "type": "number"
-    },
     "describe": {
         "type": "string",
         "length": 255
+    },
+    "employee": {
+        "type": "list"
+    },
+    "todoscheduledetail": {
+        "type": "list"
     }
 }

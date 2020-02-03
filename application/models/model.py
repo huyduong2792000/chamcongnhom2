@@ -48,6 +48,16 @@ class User(CommonModel):
     def __repr__(self):
         """ Show user object info. """
         return '<User: {}>'.format(self.id)
+    
+# association_table = db.Table('employeereltodo',
+#     db.Column('employee_id', Integer, db.ForeignKey('employee.id')),
+#     db.Column('todo_id', Integer, db.ForeignKey('todo.id'))
+# )
+employee_rel_todo = db.Table(
+    "employee_rel_todo",
+    db.Column("employee_id", Integer, db.ForeignKey("employee.id", ondelete="cascade"), primary_key=True),
+    db.Column("todo_id", Integer, db.ForeignKey("todo.id", ondelete="cascade"), primary_key=True)
+);  
 
 class Employee(CommonModel):
     id = db.Column(Integer,primary_key=True)
@@ -61,24 +71,36 @@ class Employee(CommonModel):
     position = db.Column(String(255))
     work_place = db.Column(String(255))
     status = db.Column(String(255))
+    # todoscheduledetail = db.relationship("TodoScheduleDetail")
+    # todoscheduledetail_id = db.Column(Integer, ForeignKey("todoscheduledetail.id"))
+    # employeereltodo = db.relationship("EmployeeRelTodo")
+    todo = db.relationship("Todo",
+                              secondary="employee_rel_todo",
+                              #backref = db.#backref('employee', lazy = 'dynamic'), 
+                              )
+    todoscheduledetail = db.relationship("TodoScheduleDetail",
+                            secondary="employee_rel_todoscheduledetail",
+                            #backref = db.#backref('employee', lazy = 'dynamic'), 
+                            )
 
 class Todo(CommonModel):
     id = db.Column(Integer,primary_key=True)
     __tablename__ = 'todo'
     todo_name = db.Column(String(255))
-    current_employee_working = db.Column(Integer)
+    # current_employee_working = db.Column(Integer)
     describe = db.Column(String(255))
-
-class EmployeeRelTodo(CommonModel):
-    id = db.Column(Integer,primary_key=True)
-    __tablename__ = 'employeereltodo'
-    id_employee = db.Column(Integer, ForeignKey('employee.id'), nullable=False)
-    employee_name = db.Column(String(255))
-    id_todo = db.Column(Integer, ForeignKey('todo.id'), nullable=False)
-    todo_name = db.Column(String(255))
-    status_completed_employee = db.Column(String(255))
-    status_completed_leader = db.Column(String(255))
-
+    # todoschedule = db.relationship("TodoSchedule")
+    # todoscheduledetail = db.relationship("TodoScheduleDetail")
+    # todoscheduledetail_id = db.Column(Integer, ForeignKey("todoscheduledetail.id"))
+    # employeereltodo = db.relationship("EmployeeRelTodo")
+    employee = db.relationship("Employee",
+                            secondary="employee_rel_todo",
+                            #backref = db.#backref('todo', lazy = 'dynamic'), 
+                            )
+    todoscheduledetail = db.relationship("TodoScheduleDetail",
+                            secondary="todo_rel_todoscheduledetail",
+                            #backref = db.#backref('todo', lazy = 'dynamic'), 
+                            )
 class Category(CommonModel):
     id = db.Column(Integer, primary_key= True)
     __tablename__ = 'category'
@@ -86,18 +108,54 @@ class Category(CommonModel):
 class TodoSchedule(CommonModel):
     id = db.Column(Integer, primary_key= True)
     __tablename__ = 'todoschedule'
-    id_todo = db.Column(Integer, ForeignKey('todo.id'), nullable=False)
-    todo = db.relationship("Todo", order_by="Todo.id", cascade="all, delete-orphan", single_parent=True)
+    # id_todo = db.Column(Integer, ForeignKey('todo.id'))
+    # todo = db.relationship("Todo", order_by="Todo.id", cascade="all, delete-orphan", single_parent=True)
     start_time_working = db.Column(Integer)
     end_time_working = db.Column(Integer)
+    day = db.Column(Integer) #monday, tuesday...
+    todoscheduledetail = db.relationship("TodoScheduleDetail", cascade="all, delete-orphan", lazy='dynamic')
 
+employee_rel_todoscheduledetail = db.Table(
+    "employee_rel_todoscheduledetail",
+    db.Column("employee_id", Integer, db.ForeignKey("employee.id", ondelete="cascade"), primary_key=True),
+    db.Column("todoscheduledetail_id", Integer, db.ForeignKey("todoscheduledetail.id", ondelete="cascade"), primary_key=True)
+);  
+todo_rel_todoscheduledetail = db.Table(
+    "todo_rel_todoscheduledetail",
+    db.Column("todo_id", Integer, db.ForeignKey("todo.id", ondelete="cascade"), primary_key=True),
+    db.Column("todoscheduledetail_id", Integer, db.ForeignKey("todoscheduledetail.id", ondelete="cascade"), primary_key=True)
+);  
+class TodoScheduleDetail(CommonModel):
+    id = db.Column(Integer,primary_key=True, nullable=False)
+    __tablename__ = 'todoscheduledetail'
+    todo_schedule_id = db.Column(Integer, ForeignKey("todoschedule.id"))
+    # employeereltodo = db.relationship("EmployeeRelTodo")
+    employee = db.relationship("Employee",
+                            secondary="employee_rel_todoscheduledetail",
+                            #backref = db.#backref('todoscheduledetail', lazy = 'dynamic'), 
+                            )
+    todo = db.relationship("Todo",
+                        secondary="todo_rel_todoscheduledetail",
+                        #backref = db.#backref('todoscheduledetail', lazy = 'dynamic'), 
+                        )
+
+# class EmployeeRelTodo(CommonModel):
+#     id = db.Column(Integer,primary_key=True)
+#     __tablename__ = 'employeereltodo'
+#     todoscheduledetail_id = db.Column(Integer)
+#     # todoscheduledetail = db.relationship("TodoScheduleDetail")
+#     employee_id = db.Column(Integer, db.ForeignKey('employee.id'))
+#     # employee = db.relationship("Employee")
+#     todo_id = db.Column(Integer, db.ForeignKey('todo.id'))
+#     # todo = db.relationship("Todo")
 class EmployeeSchedule(CommonModel):
     id = db.Column(Integer, primary_key=True) 
     __tablename__ = 'employeeschedule'
     id_employee =  db.Column(Integer, ForeignKey('employee.id'), nullable=False)
-    employee = db.relationship("Employee", order_by="Employee.id", cascade="all, delete-orphan", single_parent=True)
-    start_time_working = db.Column(Integer)
-    end_time_working = db.Column(Integer)
+    # employee = db.relationship("Employee", order_by="Employee.id", cascade="all, delete-orphan", single_parent=True)
+    day_working = db.Column(DateTime())
+    start_time_working = db.Column(DateTime())
+    end_time_working = db.Column(DateTime())
 class Workstation(CommonModel):
     __tablename__ = 'workstation'
     id = db.Column(Integer,primary_key=True)

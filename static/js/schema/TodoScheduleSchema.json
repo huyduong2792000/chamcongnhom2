@@ -16,17 +16,16 @@
         "type": "number",
         "primary": true
     },
-    "id_todo": {
-        "type": "number",
-        "required": true
-    },
     "start_time_working": {
         "type": "number"
     },
     "end_time_working": {
         "type": "number"
     },
-    "todo": {
-        "type": "dict"
+    "day": {
+        "type": "number"
+    },
+    "todoscheduledetail": {
+        "type": "list"
     }
 }
