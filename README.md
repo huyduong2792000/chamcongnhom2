@@ -322,4 +322,4 @@ $ python manage.py generate_schema
 - Step 6: Define Route Entry in static/js/app/bases/nav/route.js
 - Step 7: Create Collection View
 - Step 8: Create Model View
-- Step 9: Create SelectDialogView
+- Step 9: Create SelectDialogView# chamcongnhom2
