@@ -17,13 +17,10 @@
         "primary": true
     },
     "start_time_working": {
-        "type": "number"
+        "type": "datetime"
     },
     "end_time_working": {
-        "type": "number"
-    },
-    "day": {
-        "type": "number"
+        "type": "datetime"
     },
     "todoscheduledetail": {
         "type": "list"

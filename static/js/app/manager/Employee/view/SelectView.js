@@ -12,7 +12,7 @@ define(function (require) {
     	modelSchema	: schema,
     	urlPrefix: "/api/v1/",
     	collectionName: "employee",
-    	textField: "ten",
+    	textField: "name",
     	valueField: "id",
     	tools : [
     	    {

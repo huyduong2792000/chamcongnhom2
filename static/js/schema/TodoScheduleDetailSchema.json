@@ -19,6 +19,12 @@
     "todo_schedule_id": {
         "type": "number"
     },
+    "day_working": {
+        "type": "string"
+    },
+    "time_working": {
+        "type": "string"
+    },
     "employee": {
         "type": "list"
     },

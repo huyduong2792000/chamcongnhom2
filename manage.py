@@ -128,8 +128,21 @@ def create_admin(password='123456'):
         db.session.add(role_user)
         db.session.flush()
 
+    role_employee = Role.query.filter(Role.role_name == "employee").first()
+    if(role_employee is None):
+        role_employee = Role(role_name='employee', display_name="Employee")
+        db.session.add(role_employee)
+        db.session.flush()
 
+    role_leader = Role.query.filter(Role.role_name == "leader").first()
+    if(role_leader is None):
+        role_leader = Role(role_name='leader', display_name="Leader")
+        db.session.add(role_leader)
+        db.session.flush()
     user = User.query.filter(User.user_name == "admin").first()
+    user.roles = [role_admin]
+    db.session.add(user)
+    db.session.commit()
     if user is None:
         # create salt
         letters = string.ascii_lowercase

@@ -33,7 +33,7 @@ define(function (require) {
     return Gonrin.ItemView.extend({
 		template : template,
 		bindings: "item-bind",
-		//modelSchema	: schema,
+		modelSchema	: schema,
 		modelClass: Model,
 		tagName: 'tr',
     	urlPrefix: "/api/v1/",

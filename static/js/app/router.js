@@ -40,7 +40,7 @@ define(function (require) {
         logout: function () {
             var self = this;
             $.ajax({
-                url: self.getApp().serviceURL + '/api/logout',
+                url: self.getApp().serviceURL + '/user/logout',
                 dataType: "json",
                 success: function (data) {
                     self.navigate("login");
@@ -62,7 +62,7 @@ define(function (require) {
             $.each(routedata, function(idx, entry){
                 var entry_path = _.result(entry,'route');
                 self.route(entry_path, entry.collectionName, function(){
-                    require([ entry['$ref'] ], function ( View) {
+                    require([ entry['$ref']], function ( View) {
                         var view = new View({el: self.getApp().$content, viewData:entry.viewData});
                         view.render();
                     });

@@ -29,5 +29,8 @@
     "description": {
         "type": "string",
         "length": 255
+    },
+    "user": {
+        "type": "list"
     }
 }

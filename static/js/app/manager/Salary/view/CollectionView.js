@@ -29,25 +29,25 @@ define(function (require) {
 		collectionName: "todoschedule",
 		tools: [
 			{
-				name: "default",
-				type: "group",
-				groupClass: "toolbar-group",
-				buttons: [
+				name: "save",
+				type: "button",
+				buttonClass: "btn-success btn-sm",
+				label: "LƯU ",
+				command: function(){
+					var self = this;
 					
-					{
-						name: "create",
-						type: "button",
-						buttonClass: "btn-success btn-sm",
-						label: "Tạo mới",
-						command: function(){
-							var self = this;
-							var path = "todoschedule" + '/model';
-							self.getApp().getRouter().navigate(path);
+					self.model.save(null,{
+						success: function (model, respose, options) {
+							self.getApp().notify("Lưu thông tin thành công");
+							self.getApp().getRouter().navigate(self.collectionName + "/collection");
+							
+						},
+						error: function (model, xhr, options) {
+							self.getApp().notify('Lưu thông tin không thành công!');
+						   
 						}
-					},
-					
-					
-				]
+					});
+				}
 			},
 		],
     	uiControl:{

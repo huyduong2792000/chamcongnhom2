@@ -16,20 +16,24 @@
         "type": "number",
         "primary": true
     },
+    "login_at": {
+        "type": "datetime"
+    },
+    "logout_at": {
+        "type": "datetime"
+    },
     "id_employee": {
         "type": "number",
         "required": true
     },
-    "total_hours_working": {
+    "total_hours_working_in_day": {
+        "type": "number",
+        "default": 0
+    },
+    "salary_for_hour": {
         "type": "number"
     },
-    "total_time_working": {
-        "type": "number"
-    },
-    "money_for_hour": {
-        "type": "number"
-    },
-    "money_for_day": {
+    "salary_for_month": {
         "type": "number"
     },
     "total_salary": {

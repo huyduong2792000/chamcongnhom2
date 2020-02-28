@@ -1,3 +1,5 @@
+/* The container */
+
 .yeallow {
   background-color: #FFF34F;
   padding: 5px 0 5px 0;
@@ -189,7 +191,7 @@
   background-color: #C5DFB5;
 }
 
-table,
+/* table,
 th,
 td {
   border: 1px solid #C5DFB5;
@@ -200,7 +202,7 @@ th,
 td {
   padding: 5px;
   text-align: left;
-}
+} */
 
 . {
   background: #DDDD;
@@ -222,18 +224,7 @@ table {
   width: 100%;
 }
 
-table,
-th,
-td {
-  border-collapse: collapse;
-  border: 2px solid #E6E6E6;
-}
 
-th,
-td {
-  padding: 5px;
-  text-align: left;
-}
 
 .top {
   background: #C5DFB5;

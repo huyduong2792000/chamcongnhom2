@@ -11,7 +11,30 @@ define(function (require) {
     	template : template,
     	modelSchema	: schema,
     	urlPrefix: "/api/v1/",
-    	collectionName: "todo",
+		collectionName: "todo",
+		uiControl:{
+			fields:[
+				{
+					field:"level_diffcult",
+					uicontrol:"combobox",
+					textField: "level_diffcultposition",
+					valueField: "id",
+					dataSource: [
+						{id: 1, level_diffcultposition: "1"},
+						{id: 2, level_diffcultposition: "2"},
+						{id: 3, level_diffcultposition: "3"},
+						{id: 4, level_diffcultposition: "4"},
+						{id: 5, level_diffcultposition: "5"},
+						{id: 6, level_diffcultposition: "6"},
+						{id: 7, level_diffcultposition: "7"},
+						{id: 8, level_diffcultposition: "8"},
+						{id: 9, level_diffcultposition: "9"},
+						{id: 10, level_diffcultposition: "10"},
+
+					]
+				},
+			]
+		},	
     	tools : [
     	    {
     	    	name: "defaultgr",

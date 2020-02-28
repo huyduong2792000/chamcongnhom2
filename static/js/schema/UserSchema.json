@@ -47,5 +47,14 @@
     "is_active": {
         "type": "boolean",
         "default": true
+    },
+    "employee_id": {
+        "type": "number"
+    },
+    "employee": {
+        "type": "dict"
+    },
+    "roles": {
+        "type": "list"
     }
 }

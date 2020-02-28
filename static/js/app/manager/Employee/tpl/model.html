@@ -1,51 +1,91 @@
 <div block-bind="toolbar"></div>
-<div block-bind="content">
-	<div class="row text-center" style="margin-bottom:10px">
-		<div class="col-md-2 text-right"><label>ID</label></div>
-		<div class="col-md-3">
-			<input type="text" class="form-control" data-bind="value:id" readonly/>
+<div class="row">
+	<div class="col-md-5">
+		<div block-bind="content">
+			<div class="row text-center" style="margin-bottom:10px">
+				<div class="col-md-2 text-right"><label>ID</label></div>
+				<div class="col-md-10">
+					<input type="text" class="form-control" data-bind="value:id" readonly/>
+				</div>
+			</div>
+			<div class="row text-center" style="margin-bottom:10px">
+				<div class="col-md-2 text-right"><label>Tên</label></div>
+				<div class="col-md-10">
+					<input type="text" data-bind="value:name"/>
+				</div>
+			</div>
+			<div class="row text-center" style="margin-bottom:10px">
+				<div class="col-md-2 text-right"><label>Tuổi</label></div>
+				<div class="col-md-10">
+					<input type="text" data-bind="value:age"/>
+				</div>
+			</div>
+			<div class="row text-center" style="margin-bottom:10px">
+				<div class="col-md-2 text-right"><label>Quê quán</label></div>
+				<div class="col-md-10">
+					<input type="text" data-bind="value:hometown"/>
+				</div>
+			</div>
+			<div class="row text-center" style="margin-bottom:10px">
+				<div class="col-md-2 text-right"><label>Số điện thoại</label></div>
+				<div class="col-md-10">
+					<input type="text" data-bind="value:phone_number"/>
+				</div>
+			</div>
+			<div class="row text-center" style="margin-bottom:10px">
+				<div class="col-md-2 text-right"><label>Giới tính</label></div>
+				<div class="col-md-10">
+					<input type="text" data-bind="value:gender"/>
+				</div>
+			</div>
+			<div class="row text-center" style="margin-bottom:10px">
+				<div class="col-md-2 text-right"><label>Chức vụ</label></div>
+				<div class="col-md-10">
+					<input type="text" data-bind="value:position"/>
+				</div>
+			</div>
+			<div class="row text-center" style="margin-bottom:10px">
+				<div class="col-md-2 text-right"><label>Nơi làm việc</label></div>
+				<div class="col-md-10">
+					<input type="text" data-bind="value:work_place"/>
+				</div>
+			</div>
+			<!-- <div class="row text-center" style="margin-bottom:10px">
+				<div class="col-md-2 text-right"><label>Lương trên giờ</label></div>
+				<div class="col-md-10">
+					<input type="text" class="form-control" data-bind="value:salary_for_hour"/>
+				</div>
+			</div> -->
 		</div>
 	</div>
-	<div class="row text-center" style="margin-bottom:10px">
-		<div class="col-md-2 text-right"><label>Tên</label></div>
-		<div class="col-md-3">
-			<input type="text" data-bind="value:name"/>
-		</div>
-	</div>
-	<div class="row text-center" style="margin-bottom:10px">
-		<div class="col-md-2 text-right"><label>Tuổi</label></div>
-		<div class="col-md-3">
-			<input type="text" data-bind="value:age"/>
-		</div>
-	</div>
-	<div class="row text-center" style="margin-bottom:10px">
-		<div class="col-md-2 text-right"><label>Quê quán</label></div>
-		<div class="col-md-3">
-			<input type="text" data-bind="value:hometown"/>
-		</div>
-	</div>
-	<div class="row text-center" style="margin-bottom:10px">
-		<div class="col-md-2 text-right"><label>Số điện thoại</label></div>
-		<div class="col-md-3">
-			<input type="text" data-bind="value:phone_number"/>
-		</div>
-	</div>
-	<div class="row text-center" style="margin-bottom:10px">
-		<div class="col-md-2 text-right"><label>Giới tính</label></div>
-		<div class="col-md-3">
-			<input type="text" data-bind="value:gender"/>
-		</div>
-	</div>
-	<div class="row text-center" style="margin-bottom:10px">
-		<div class="col-md-2 text-right"><label>Chức vụ</label></div>
-		<div class="col-md-3">
-			<input type="text" data-bind="value:position"/>
-		</div>
-	</div>
-	<div class="row text-center" style="margin-bottom:10px">
-		<div class="col-md-2 text-right"><label>Nơi làm việc</label></div>
-		<div class="col-md-3">
-			<input type="text" data-bind="value:work_place"/>
+	<div class="col-md-5">
+		<div id="user">
+			<div block-bind="content">
+					<div class="row text-center" style="margin-bottom:10px">
+						<div class="col-md-2 text-right"><label>Email</label></div>
+						<div class="col-md-10">
+							<input class="form-control" type="text" data-bind="value:email"/>
+						</div>
+					</div>
+					<div class="row text-center" style="margin-bottom:10px">
+						<div class="col-md-2 text-right"><label>Họ và tên</label></div>
+						<div class="col-md-10">
+							<input class="form-control" type="text" data-bind="value:full_name"/>
+						</div>
+					</div>
+					<div class="row text-center" style="margin-bottom:10px">
+						<div class="col-md-2 text-right"><label>Tên đăng nhập</label></div>
+						<div class="col-md-10">
+							<input type="text" class="form-control" data-bind="value:user_name"/>
+						</div>
+					</div>
+					<div class="row text-center" style="margin-bottom:10px">
+						<div class="col-md-2 text-right"><label>Mật khẩu</label></div>
+						<div class="col-md-10">
+							<input type="text" class="form-control" data-bind="value:password"/>
+						</div>
+					</div>
+				</div>
 		</div>
 	</div>
 </div>

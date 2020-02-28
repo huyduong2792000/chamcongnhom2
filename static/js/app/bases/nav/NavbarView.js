@@ -23,7 +23,34 @@ define(function (require) {
     	userHasRole: function(role){
     	    var is = gonrinApp().currentUser != null ? gonrinApp().currentUser.hasRole(role): false;
     	    return is;
-    	},
+		},
+		checkRole: function(){
+			var role = gonrinApp().currentUser != null ? gonrinApp().currentUser.role: false;
+			return role;
+			
+		},
+		navbarConfig: function(){
+			var result=[];
+			var role = this.checkRole();
+			if (role =='leader'){		
+				navdata.forEach(function(value,index){
+					if(value.collectionName != 'todoschedule'){
+						result.push(value);
+					};
+				});
+			}else if (role =='employee'){		
+				navdata.forEach(function(value,index){
+					if(value.collectionName =='employee_rel_todo'){
+						result.push(value);
+					};
+					
+				});
+			}else if (role == 'admin'){
+				result = navdata;
+			}
+			return result;
+			
+		},
     	loadEntries: function($el, entries, is_root){
 			var self = this;
 			if(entries && (entries.length > 0)){
@@ -141,11 +168,14 @@ define(function (require) {
 	        var visible = "visible";
 	        return !entry.hasOwnProperty(visible) || (entry.hasOwnProperty(visible) && (_.isFunction(entry[visible]) ? entry[visible].call(self) : (entry[visible] === true)) );
 			
-	    },
-		render: function(entries){
-			this.$el.empty();
-			entries = entries || navdata;
+		},
+		render:function(entries) {
 			var self = this;
+			// console.log(gonrinApp().currentUser);
+			var navbardata = self.navbarConfig();
+			// self.navbarConfig(self,self.renderView)
+			this.$el.empty();
+			entries = navbardata;
 			this.$el.addClass("page-navbar navbar-collapse collapse").html(template);
 			var nav_list = this.$el.find('ul.page-navbar-menu');
 			this.loadEntries(nav_list, entries, true);

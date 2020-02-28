@@ -4,14 +4,30 @@ define(function (require) {
         _                   = require('underscore'),
         Gonrin				= require('gonrin');
     
-    var template 			= require('text!app/manager/Employee/tpl/model.html'),
+	var template 			= require('text!app/manager/Employee/tpl/model.html'),
     	schema 				= require('json!schema/EmployeeSchema.json');
-    
+
     return Gonrin.ModelView.extend({
     	template : template,
     	modelSchema	: schema,
     	urlPrefix: "/api/v1/",
-    	collectionName: "employee",
+		collectionName: "employee",
+		uiControl:{
+		fields:[
+			{
+				field:"position",
+				uicontrol:"combobox",
+				textField: "position",
+				valueField: "id",
+				dataSource: [
+					{id: "employee", position: "Nhân viên"},
+					{id: "leader", position: "Tổ trưởng"},
+					
+				]
+			},
+
+		]
+	},	
     	tools : [
     	    {
     	    	name: "defaultgr",
@@ -36,18 +52,19 @@ define(function (require) {
 		    	    	label: "LƯU NHÂN VIÊN",
 		    	    	command: function(){
 		    	    		var self = this;
-		    	    		
-		                    self.model.save(null,{
-		                        success: function (model, respose, options) {
-		                            self.getApp().notify("Lưu thông tin thành công");
-		                            self.getApp().getRouter().navigate(self.collectionName + "/collection");
-		                            
-		                        },
-		                        error: function (model, xhr, options) {
-		                            self.getApp().notify('Lưu thông tin không thành công!');
-		                           
-		                        }
-		                    });
+							// self.processSave();
+							self.model.save(null,{
+								success: function (model, respose, options) {
+									self.getApp().notify("Lưu thông tin thành công");
+									self.getApp().getRouter().navigate(self.collectionName + "/collection");
+									
+								},
+								error: function (model, xhr, options) {
+									self.getApp().notify('Lưu thông tin không thành công!');
+								   
+								}
+							});
+		                    
 		    	    	}
 		    	    },
 					{
@@ -73,15 +90,21 @@ define(function (require) {
 		    	    	}
 		    	    },
     	    	],
-    	    }],
+			}],
+
     	render:function(){
-    		var self = this;
+			var self = this;
+			var currUser = self.getApp().currentUser;
+			console.log('current user',currUser);
     		var id = this.getApp().getRouter().getParam("id");
     		if(id){
     			//progresbar quay quay
     			this.model.set('id',id);
         		this.model.fetch({
         			success: function(data){
+						// console.log(self.model.get('salary'))
+						// $('#user').append(UserRegisterView.render());
+						// self.model.set({"salary_for_hour":"self.model.get('salary')"})
         				self.applyBindings();
         			},
         			error:function(){
@@ -92,7 +115,8 @@ define(function (require) {
     			self.applyBindings();
     		}
     		
-    	},
+		},
+
     });
 
 });

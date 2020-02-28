@@ -49,10 +49,26 @@
         "type": "string",
         "length": 255
     },
-    "todo": {
-        "type": "list"
+    "user_name": {
+        "type": "string",
+        "length": 255
+    },
+    "full_name": {
+        "type": "string",
+        "length": 255
+    },
+    "email": {
+        "type": "string",
+        "length": 255
+    },
+    "password": {
+        "type": "string",
+        "length": 255
     },
     "todoscheduledetail": {
+        "type": "list"
+    },
+    "user": {
         "type": "list"
     }
 }

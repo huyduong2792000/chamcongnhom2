@@ -24,8 +24,8 @@
         "type": "string",
         "length": 255
     },
-    "employee": {
-        "type": "list"
+    "level_diffcult": {
+        "type": "number"
     },
     "todoscheduledetail": {
         "type": "list"
