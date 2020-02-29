@@ -22,12 +22,13 @@ def user_register(request=None, Model=None, result=None, **kw):
     print("user_salt", user_salt)
     user_password=auth.encrypt_password(param['password'], user_salt)
     user = User(email=param['email'],password=user_password, salt=user_salt,user_name=param['user_name'],full_name=param['full_name'])
-    if (param['position']=='employee'):
+    if (param['position']=='employee' or param['position'] is None):
         user.roles = [role_employee]
     if (param['position']=='leader'):
         user.roles = [role_leader]
     employee = db.session.query(Employee).filter(Employee.id == result['id']).first()
     employee.user = [user]
+    print('role',role_employee)
     db.session.add(employee)
 
     db.session.commit()
@@ -62,6 +63,7 @@ async def user_login(request):
             except:
                 pass
             auth.login_user(request, user)
+            print('user',user.roles)
             return json({"id": user.id, "user_name": user.user_name, "full_name": user.full_name,"employee_id":user.employee_id,"role":user.roles[0].role_name})
         return json({"error_code":"LOGIN_FAILED","error_message":"user does not exist or incorrect password"}, status=520)
     else:

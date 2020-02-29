@@ -65,6 +65,13 @@
         "type": "string",
         "length": 255
     },
+    "way_of_working": {
+        "type": "string",
+        "length": 255
+    },
+    "salary_for_hour": {
+        "type": "number"
+    },
     "todoscheduledetail": {
         "type": "list"
     },

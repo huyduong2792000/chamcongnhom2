@@ -1,5 +1,5 @@
 """ Module represents a User. """
-
+import datetime
 from sqlalchemy import (
     Column, String, Integer,
     DateTime, Date, Boolean,
@@ -70,7 +70,8 @@ class Employee(CommonModel):
     full_name = db.Column(String(255))
     email = db.Column(String(255))
     password = db.Column(String(255))
-    # salary = db.relationship("Salary")
+    way_of_working = db.Column(String(255))
+    salary_for_hour = db.Column(Float)
     todoscheduledetail = db.relationship("TodoScheduleDetail",
                             secondary="employee_rel_todoscheduledetail",
                             #backref = db.#backref('employee', lazy = 'dynamic'), 
@@ -183,7 +184,7 @@ class Salary(CommonModel):
     id = db.Column(Integer, primary_key=True)
     __tablename__ = 'salary'
     login_at = db.Column(DateTime)
-    logout_at = db.Column(DateTime)
+    logout_at = db.Column(DateTime, default=datetime.datetime.utcnow)
     id_employee = db.Column(Integer, ForeignKey('employee.id',ondelete="cascade"), nullable=False)
     total_hours_working_in_day = db.Column(Float, default=0)
     # total_hours_working = db.Column(Float)

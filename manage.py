@@ -140,8 +140,8 @@ def create_admin(password='123456'):
         db.session.add(role_leader)
         db.session.flush()
     user = User.query.filter(User.user_name == "admin").first()
-    user.roles = [role_admin]
-    db.session.add(user)
+    # user.roles = [role_admin]
+    # db.session.add(user)
     db.session.commit()
     if user is None:
         # create salt
@@ -153,7 +153,7 @@ def create_admin(password='123456'):
 
         #create user
         user = User(user_name='admin', full_name="Admin User", email="admin@gonrin.com",\
-            password=user_password, salt=user_salt)
+            password=user_password, salt=user_salt,roles = [role_admin])
         
         db.session.add(user)
  
