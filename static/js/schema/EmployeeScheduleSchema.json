@@ -20,13 +20,94 @@
         "type": "number",
         "required": true
     },
-    "day_working": {
+    "start_schedule": {
         "type": "datetime"
     },
-    "start_time_working": {
+    "end_schedule": {
         "type": "datetime"
     },
-    "end_time_working": {
-        "type": "datetime"
+    "monday_morning": {
+        "type": "boolean",
+        "default": false
+    },
+    "monday_afternoon": {
+        "type": "boolean",
+        "default": false
+    },
+    "monday_night": {
+        "type": "boolean",
+        "default": false
+    },
+    "tuesday_morning": {
+        "type": "boolean",
+        "default": false
+    },
+    "tuesday_afternoon": {
+        "type": "boolean",
+        "default": false
+    },
+    "tuesday_night": {
+        "type": "boolean",
+        "default": false
+    },
+    "wednesday_morning": {
+        "type": "boolean",
+        "default": false
+    },
+    "wednesday_afternoon": {
+        "type": "boolean",
+        "default": false
+    },
+    "wednesday_night": {
+        "type": "boolean",
+        "default": false
+    },
+    "thursday_morning": {
+        "type": "boolean",
+        "default": false
+    },
+    "thursday_afternoon": {
+        "type": "boolean",
+        "default": false
+    },
+    "thursday_night": {
+        "type": "boolean",
+        "default": false
+    },
+    "friday_morning": {
+        "type": "boolean",
+        "default": false
+    },
+    "friday_afternoon": {
+        "type": "boolean",
+        "default": false
+    },
+    "friday_night": {
+        "type": "boolean",
+        "default": false
+    },
+    "saturday_morning": {
+        "type": "boolean",
+        "default": false
+    },
+    "saturday_afternoon": {
+        "type": "boolean",
+        "default": false
+    },
+    "saturday_night": {
+        "type": "boolean",
+        "default": false
+    },
+    "sunday_morning": {
+        "type": "boolean",
+        "default": false
+    },
+    "sunday_afternoon": {
+        "type": "boolean",
+        "default": false
+    },
+    "sunday_night": {
+        "type": "boolean",
+        "default": false
     }
 }

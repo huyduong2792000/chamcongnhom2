@@ -6,7 +6,12 @@ define(function (require) {
     
     var template 			= require('text!app/manager/TodoSchedule/tpl/model.html'),
     	schema 				= require('json!schema/TodoScheduleSchema.json');
-    var TodoScheduleItem = require('app/manager/TodoSchedule/view/ItemView');
+	var TodoScheduleItemView = require('app/manager/TodoSchedule/view/ItemView'),
+		schema_todoscheduleitem= require('json!schema/TodoScheduleDetailSchema.json');
+	var modelTodoScheduleItem = Gonrin.Model.extend({
+		defaults: Gonrin.getDefaultModel(schema_todoscheduleitem),
+		urlRoot : "/api/v1/todoscheduledetail"
+	});
     return Gonrin.ModelView.extend({
     	template : template,
     	modelSchema	: schema,
@@ -18,7 +23,7 @@ define(function (require) {
         		{
     				field:"todoscheduledetail",
     				uicontrol: false,
-					itemView: TodoScheduleItem,
+					itemView: TodoScheduleItemView,
 					tools: [{
 						name: "create",
 						type: "button",
@@ -97,17 +102,16 @@ define(function (require) {
 
     	render:function(){
 			var self = this;
-			// console.log('model',this.model)
-    		var id = this.getApp().getRouter().getParam("id");
+			var id = this.getApp().getRouter().getParam("id");
+			
     		if(id){
     			//progresbar quay quay
 				this.model.set('id',id);
-				// this.model.on("change:todoscheduledetail", function () {
-				// 	// check what be changed
-				
-				// 	console.log("detaillist", self.model.get("todoscheduledetail"));
-				// });
-				// this.model.set('time_working',1)
+				this.model.on(" add", function () {
+					// check what be changed
+					console.log("detaillist", self.model.get("todoscheduledetail"));
+					
+				});
         		this.model.fetch({
         			success: function(data){
 						self.applyBindings();
@@ -120,7 +124,11 @@ define(function (require) {
     		}else{
 				self.applyBindings();
 			
-    		}
+			}
+			// $('#add_todo_schedule').unbind('click').bind('click',function(){
+			// 	var test = new TodoScheduleItemView({model:new modelTodoScheduleItem})
+			// 	$('#todoscheduledetail').append(test.render().el)
+			// })
     		
     	},
     });

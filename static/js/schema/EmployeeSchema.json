@@ -51,6 +51,7 @@
     },
     "user_name": {
         "type": "string",
+        "required": true,
         "length": 255
     },
     "full_name": {
@@ -59,18 +60,28 @@
     },
     "email": {
         "type": "string",
+        "required": true,
         "length": 255
     },
     "password": {
         "type": "string",
+        "required": true,
         "length": 255
     },
-    "way_of_working": {
+    "parttime_fulltime": {
         "type": "string",
         "length": 255
     },
-    "salary_for_hour": {
-        "type": "number"
+    "salary_for_shift": {
+        "type": "number",
+        "default": 0
+    },
+    "salary_for_month": {
+        "type": "number",
+        "default": 0
+    },
+    "employee_schedule": {
+        "type": "list"
     },
     "todoscheduledetail": {
         "type": "list"

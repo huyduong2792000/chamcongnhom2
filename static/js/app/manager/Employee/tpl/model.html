@@ -51,9 +51,26 @@
 				</div>
 			</div>
 			<div class="row text-center" style="margin-bottom:10px">
-				<div class="col-md-2 text-right"><label>Lương trên giờ</label></div>
+				<div class="col-md-2 text-right"><label>Cách làm việc( theo giờ, toàn thời gian)</label></div>
 				<div class="col-md-10">
-					<input type="text" class="form-control" data-bind="value:salary_for_hour"/>
+					<input id="parttime_fulltime" type="text" class="form-control" data-bind="value:parttime_fulltime"/>
+				</div>
+			</div>
+			<div id="salary_for_month" class="row text-center" style="margin-bottom:10px; display: none;">
+				<div class="col-md-2 text-right"><label>Lương tháng</label></div>
+				<div class="col-md-10">
+					<input  type="text" class="form-control" data-bind="value:salary_for_month"/>
+				</div>
+			</div>
+			<div id="salary_for_shift" class="row text-center" style="margin-bottom:10px;display: none;">
+				<div class="col-md-2 text-right"><label>Lương một ca</label></div>
+				<div class="col-md-10">
+					<input type="text" class="form-control" data-bind="value:salary_for_shift"/>
+				</div>
+			</div>
+			<div id="schedule" class="row text-center" style="margin-bottom:10px;">
+				<div class="col-md-12"><label>Lịch làm việc</label></div>
+				<div id="grid-schedule">
 				</div>
 			</div>
 		</div>

@@ -1,5 +1,17 @@
 /* The container */
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto ;
 
+  padding: 5px;
+}
+.grid-item {
+
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+}
 .yeallow {
   background-color: #FFF34F;
   padding: 5px 0 5px 0;

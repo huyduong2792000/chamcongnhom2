@@ -8,4 +8,22 @@
     </div>
 </div>
 
-<div id="grid" data-bind='collection:$collection'></div>
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12" id="details">
+        <table class="table table-striped table-responsive" style="min-height:364px;">
+            <thead>
+                <tr >
+                    <th>Tên nhân viên</th>
+                    <th>đăng nhập lúc</th>
+                    <th>đăng xuất lúc</th>
+                    <th>tổng số giờ online</th>
+                </tr>
+            </thead>
+            <tbody id="list_salary"></tbody>
+        </table>
+    </div>
+    <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-12" id="add_employee_rel_todo"></div> -->
+</div>
+<div id="grid" data-bind='collection:$collection'>
+    
+</div>

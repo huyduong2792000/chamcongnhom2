@@ -74,6 +74,7 @@ define(function (require) {
     	},
 	    render:function(){
 			var self = this;
+			// console.log('collection',this)
 			// self.collection.set({'url':"http://0.0.0.0:8090/api/v1/todoschedule?page=2&results_per_page=10"});
 			// this.collection.fetch({
 			// 	url: "http://0.0.0.0:8090/api/v1/todoschedule?results_per_page=10000",

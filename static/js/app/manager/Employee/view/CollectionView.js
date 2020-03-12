@@ -6,7 +6,6 @@ define(function (require) {
     
     var template 			= require('text!app/manager/Employee/tpl/collection.html');
     var	schema 				= require('json!schema/EmployeeSchema.json');
-    console.log('collectionview')
     return Gonrin.CollectionView.extend({
     	template : template,
     	modelSchema	: schema,
@@ -41,7 +40,8 @@ define(function (require) {
 				  { field: "name", label: "Tên" },
 				  { field: "phone_number", label: "Số điện thoại" },
 				  {field:"status",label:"Trạng thái"}
-		     ],
+			 ],
+			
 		     onRowClick: function(event){
 		    	if(event.rowId){
 		        		var path = this.collectionName + '/model?id='+ event.rowId;

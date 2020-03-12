@@ -26,15 +26,22 @@
         "type": "number",
         "required": true
     },
-    "total_hours_working_in_day": {
-        "type": "number",
-        "default": 0
+    "employee_name": {
+        "type": "string",
+        "length": 255
     },
-    "salary_for_hour": {
+    "total_hours_working_in_month": {
+        "type": "number"
+    },
+    "salary_for_shift": {
         "type": "number"
     },
     "salary_for_month": {
         "type": "number"
+    },
+    "bonus": {
+        "type": "number",
+        "default": 0
     },
     "total_salary": {
         "type": "number"

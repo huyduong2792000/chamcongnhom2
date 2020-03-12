@@ -1,5 +1,5 @@
 """ Module represents a User. """
-import datetime
+from datetime import datetime
 from sqlalchemy import (
     Column, String, Integer,
     DateTime, Date, Boolean,
@@ -66,12 +66,14 @@ class Employee(CommonModel):
     position = db.Column(String(255))
     work_place = db.Column(String(255))
     status = db.Column(String(255))
-    user_name = db.Column(String(255))
-    full_name = db.Column(String(255))
-    email = db.Column(String(255))
-    password = db.Column(String(255))
-    way_of_working = db.Column(String(255))
-    salary_for_hour = db.Column(Float)
+    user_name = db.Column(String(255), nullable=False, index=True)
+    full_name = db.Column(String(255), nullable=True)
+    email = db.Column(String(255), nullable=False, index=True)
+    password = db.Column(String(255), nullable=False)
+    parttime_fulltime = db.Column(String(255))
+    salary_for_shift = db.Column(Float,default=0)
+    salary_for_month = db.Column(Float,default=0)
+    employee_schedule = db.relationship("EmployeeSchedule", cascade="all, delete-orphan", lazy='dynamic')
     todoscheduledetail = db.relationship("TodoScheduleDetail",
                             secondary="employee_rel_todoscheduledetail",
                             #backref = db.#backref('employee', lazy = 'dynamic'), 
@@ -163,11 +165,37 @@ class EmployeeRelTodo(CommonModel):
 class EmployeeSchedule(CommonModel):
     id = db.Column(Integer, primary_key=True) 
     __tablename__ = 'employeeschedule'
-    id_employee =  db.Column(Integer, ForeignKey('employee.id'), nullable=False)
-    # employee = db.relationship("Employee", order_by="Employee.id", cascade="all, delete-orphan", single_parent=True)
-    day_working = db.Column(DateTime())
-    start_time_working = db.Column(DateTime())
-    end_time_working = db.Column(DateTime())
+    id_employee =  db.Column(Integer, ForeignKey('employee.id',ondelete="cascade"), nullable=False)
+    start_schedule = db.Column(DateTime)
+    end_schedule = db.Column(DateTime)
+
+    monday_morning = db.Column(Boolean,default = False)
+    monday_afternoon = db.Column(Boolean,default = False)
+    monday_night = db.Column(Boolean,default = False)
+
+    tuesday_morning = db.Column(Boolean,default = False)
+    tuesday_afternoon = db.Column(Boolean,default = False)
+    tuesday_night = db.Column(Boolean,default = False)
+
+    wednesday_morning = db.Column(Boolean,default = False)
+    wednesday_afternoon = db.Column(Boolean,default = False)
+    wednesday_night = db.Column(Boolean,default = False)
+
+    thursday_morning = db.Column(Boolean,default = False)
+    thursday_afternoon = db.Column(Boolean,default = False)
+    thursday_night = db.Column(Boolean,default = False)
+
+    friday_morning = db.Column(Boolean,default = False)
+    friday_afternoon = db.Column(Boolean,default = False)
+    friday_night = db.Column(Boolean,default = False)
+
+    saturday_morning = db.Column(Boolean,default = False)
+    saturday_afternoon = db.Column(Boolean,default = False)
+    saturday_night = db.Column(Boolean,default = False)
+
+    sunday_morning = db.Column(Boolean,default = False)
+    sunday_afternoon = db.Column(Boolean,default = False)
+    sunday_night = db.Column(Boolean,default = False)
 class Workstation(CommonModel):
     __tablename__ = 'workstation'
     id = db.Column(Integer,primary_key=True)
@@ -183,11 +211,10 @@ class Organization(CommonModel):
 class Salary(CommonModel):
     id = db.Column(Integer, primary_key=True)
     __tablename__ = 'salary'
-    login_at = db.Column(DateTime)
-    logout_at = db.Column(DateTime, default=datetime.datetime.utcnow)
     id_employee = db.Column(Integer, ForeignKey('employee.id',ondelete="cascade"), nullable=False)
-    total_hours_working_in_day = db.Column(Float, default=0)
-    # total_hours_working = db.Column(Float)
-    salary_for_hour = db.Column(Float)
-    salary_for_month = db.Column(Float)
+    employee_name = db.Column(String(255))
+    month = db.Column(Integer)
+    year = db.Column(Integer)
+    bonus = db.Column(Float, default = 0)
     total_salary = db.Column(Float)
+   
